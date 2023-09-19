@@ -12,7 +12,9 @@
 		text-align: center;
 		&>div {
 			margin-top: 30px;
+			width: 100%;
 			flex-wrap: wrap;
+			justify-content: center;
 			&>h2 {
 				width: 100%;
 			}
@@ -24,11 +26,12 @@
 			&>input {
 				flex: 1;
 				border-radius: 10px;
+				max-width: 300px;
 				background-color: transparent;
-				color: white;
+				color: var(--text_highlight);
 				padding-left: 20px;
 				font-size: x-large;
-				border: 2px solid white;
+				border: 2px solid var(--text_highlight);
 				border-radius: 10px;
 			}
 
@@ -37,21 +40,21 @@
 					opacity: 0.4;
 					background-color: transparent;
 					border-color: var(--red);
-					color: white;
+					color: var(--text_highlight);
 				}
 			}
 			&>div {
 				transition: opacity 0.2s;
-				background-color: white;
-				border: 3px solid white;
+				background-color: var(--text_highlight);
+				border: 3px solid var(--text_highlight);
 				border-radius: 10px;
 				padding: 10px;
 				cursor: pointer;
 				transition: background-color 0.2s;
 				box-sizing: border-box;
-				color: black;
+				color: var(--accent);
 				&:hover {
-					color: white;
+					color: var(--text_highlight);
 					background-color: transparent;
 				}
 			}
