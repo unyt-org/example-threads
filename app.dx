@@ -1,0 +1,10 @@
+name: "Website Screenshot Example",
+icon_path: "https://cdn.unyt.org/unyt-resources/logos/unyt/square-dark-background.png";
+
+plugin git_deploy (
+	prod: (
+		on: 'push'
+		branch: '*',
+		test: false
+	)
+)

@@ -1,0 +1,13 @@
+use stage from #public.uix;
+
+endpoint: stage {
+	prod: @+example_screenshot
+},
+
+location: stage {
+	prod: @+unyt_eu1
+},
+
+domain: stage {
+	prod: 'screenshot.unyt.app'
+}
