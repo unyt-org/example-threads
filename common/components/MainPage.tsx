@@ -22,7 +22,6 @@ export class MainPage extends UIX.BaseComponent {
 	@id declare inputPiDigits: HTMLInputElement;
 	@id declare torAddress: HTMLInputElement;
 
-	@standalone
 	async createVanityAddress() {
 		const parent = this.torAddress.parentElement!;
 		if (parent.classList.contains("hidden"))
@@ -42,7 +41,6 @@ export class MainPage extends UIX.BaseComponent {
 		disposeThread(...threads);
 	}
 
-	@standalone
 	async computePI() {
 		const parent = this.inputPiDigits.parentElement!;
 		if (parent.classList.contains("hidden"))
@@ -53,5 +51,6 @@ export class MainPage extends UIX.BaseComponent {
 		const pi = await thread.calculatePI(+this.inputPiDigits.value || 10);
 		parent.querySelector("section")!.prepend(<span>{pi}</span>)
 		parent.classList.remove("hidden");
+		disposeThread(thread);
 	}
 }
