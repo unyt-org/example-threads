@@ -21,7 +21,7 @@ This repository demonstrates the concepts of **Single-Threading** and **Multi-Th
 This diagram outlines the UIX default project structure.
 ```
 .
-└── example-website-screenshot/
+└── example-threads/
     ├── common/
     │   ├── compoments/
     │   │   ├── MainPage.scss   // Main style declaration
