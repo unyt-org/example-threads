@@ -1,7 +1,3 @@
-export function heavyCalculation(x: number, y:number) {
-	return x + y
-}
-export const pi = $$('');
 export function* generateDigitsOfPi() {
 	let q = 1n;
 	let r = 180n;

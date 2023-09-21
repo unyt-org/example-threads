@@ -1,6 +1,6 @@
 # Example: Threads
 
-This repository demonstrates **Single-Threading** and **Multi-Threading**.
+This repository demonstrates the concepts of **Single-Threading** and **Multi-Threading** based on [DATEX](https://datex.unyt.org) on the example of calculating the digits of PI and creating a [TOR vanity address](https://community.torproject.org/onion-services/advanced/vanity-addresses/).
 
 
 ## Installation
@@ -19,7 +19,6 @@ This repository demonstrates **Single-Threading** and **Multi-Threading**.
 
 ## Structure
 This diagram outlines the UIX default project structure.
-We split our code base in [back-end](https://unyt.org/glossary#back-end), [front-end](https://unyt.org/glossary#front-end), and commons folder.
 ```
 .
 └── example-website-screenshot/
@@ -27,7 +26,8 @@ We split our code base in [back-end](https://unyt.org/glossary#back-end), [front
     │   ├── compoments/
     │   │   ├── MainPage.scss   // Main style declaration
     │   │   └── MainPage.tsx    // Main component
-    │   └── Worker.ts           // Worker
+    │   ├── PI-Worker.ts        // Worker for PI calculation
+    │   └── TOR-Worker.ts       // Worker for TOR address gen
     ├── frontend/
     │   ├── entrypoint.css      // Front-end style declaration
     │   └── entrypoint.tsx      // Front-end entrypoint
@@ -37,13 +37,12 @@ We split our code base in [back-end](https://unyt.org/glossary#back-end), [front
 
 ## Features
 * Threading
+* Multiple threads
+* Disposing of threads
 
 ## Preview
 <img src=".github/screenshot.png" width="400">
 
-
-## Explanation
-*TODO*
 
 ---
 

@@ -29,7 +29,7 @@ export class MainPage extends UIX.BaseComponent {
 			return;
 		parent.classList.add("hidden");
 
-		const threads = await spawnThreads<typeof import('../TOR.ts')>(new Path('../TOR.ts'), 10);
+		const threads = await spawnThreads<typeof import('../TOR-Worker.ts')>(new Path('../TOR-Worker.ts'), 10);
 		const calculations = threads.map(thread => thread.generateVanityAddress(this.torAddress.value));
 		const result = await Promise.any(calculations);
 		console.log("Found address", result);
@@ -49,7 +49,7 @@ export class MainPage extends UIX.BaseComponent {
 			return;
 		parent.classList.add("hidden");
 
-		const thread = await spawnThread<typeof import('../Worker.ts')>(new Path('../Worker.ts'));
+		const thread = await spawnThread<typeof import('../PI-Worker.ts')>(new Path('../PI-Worker.ts'));
 		const pi = await thread.calculatePI(+this.inputPiDigits.value || 10);
 		parent.querySelector("section")!.prepend(<span>{pi}</span>)
 		parent.classList.remove("hidden");
