@@ -71,12 +71,17 @@
 		}
 		&>.tor {
 			span {
+				max-width: 1000px;
+				margin: auto;
+				width: 100%;
 				display: flex;
 				flex-wrap: wrap;
 				b {
 					width: 50%;
 				}
 				a {
+					margin: auto;
+					margin-bottom: 10px;
 					text-align: center;
 				}
 			}
