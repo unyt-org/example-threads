@@ -68,5 +68,17 @@
 				flex-direction: column;
 			}
 		}
+		&>.tor {
+			span {
+				display: flex;
+				flex-wrap: wrap;
+				b {
+					width: 50%;
+				}
+				a {
+					text-align: center;
+				}
+			}
+		}
 	}
 }
