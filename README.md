@@ -1,6 +1,7 @@
 # Example: Threads
 
-This repository demonstrates the concepts of **Single-Threading** and **Multi-Threading** based on [DATEX](https://datex.unyt.org) on the example of calculating the digits of PI and creating a [TOR vanity address](https://community.torproject.org/onion-services/advanced/vanity-addresses/).
+This repository demonstrates the concepts of type-safe **Multi-Threading** based on [DATEX](https://datex.unyt.org) and Web Workers.
+In this demo, we are calculating the digits of PI and creating a [TOR vanity address](https://community.torproject.org/onion-services/advanced/vanity-addresses/).
 
 
 ## Installation
@@ -13,7 +14,7 @@ This repository demonstrates the concepts of **Single-Threading** and **Multi-Th
 	```
 3. Run the project local
 	```bash
-	$ uix -wlb --port 8000
+	$ uix -l --port 8000
 	```
 4. Navigate to your favourite web browser and open http://localhost:8000 to see everything in action. 
 
