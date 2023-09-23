@@ -33,11 +33,11 @@ import type { AddressData } from "common/TOR-Worker.ts";
 })
 export class MainPage extends UIX.BaseComponent {
 	
-	// references properties to read input values
+	// reference properties for input values
 	@property piDigits = 5;
 	@property addressPrefix = "";
 
-	// reference properties to get calculation state
+	// reference properties for calculation state
 	@property calculatingPI = false
 	@property calculatingAddress = false
 
