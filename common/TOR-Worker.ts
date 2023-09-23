@@ -2,6 +2,19 @@ const ed = await import("https://unpkg.com/@noble/ed25519@2.0.0/index.js");
 const base32 = await import("https://cdn.jsdelivr.net/npm/hi-base32@0.5.1/+esm");
 await import("https://cdn.jsdelivr.net/npm/js-sha3@0.9.2/src/sha3.min.js");
 
+
+export type AddressData = {
+    address: string;
+    public: {
+        raw: Uint8Array;
+        b64: string;
+    };
+    private: {
+        raw: Uint8Array;
+        b64: string;
+    };
+}
+
 declare const sha3_256: any;
 type KeyPair = {
 	private: PrivateKey,
@@ -23,7 +36,7 @@ class PrivateKey {
 	}
 }
 
-const generateKeys = async (privateKey = ed.utils.randomPrivateKey()): Promise<KeyPair> => {
+async function generateKeys(privateKey = ed.utils.randomPrivateKey()): Promise<KeyPair> {
 	const publicKey = await ed.getPublicKeyAsync(privateKey);
 	return {
 		private: new PrivateKey(privateKey),
@@ -31,7 +44,7 @@ const generateKeys = async (privateKey = ed.utils.randomPrivateKey()): Promise<K
 	};
 }
 
-const getPublicKey = (address: string) => {
+function getPublicKey(address: string) {
 	if (!/\.onion$/i.test(address) || address.length != 56 + 6)
 		throw new Error("Invalid length");
 	const base32Encoded = address.substring(0, address.length - 6).toUpperCase();
@@ -55,7 +68,7 @@ const getPublicKey = (address: string) => {
 	return new PublicKey(new Uint8Array(publicKey));
 }
 
-const generateOnionV3 = async (keys: KeyPair | Promise<KeyPair> = generateKeys()) => {
+async function generateOnionV3(keys: KeyPair | Promise<KeyPair> = generateKeys()):Promise<AddressData> {
 	keys = await keys;
 
 	const publicKey = keys.public.value;
@@ -87,7 +100,7 @@ const generateOnionV3 = async (keys: KeyPair | Promise<KeyPair> = generateKeys()
 	}
 }
 
-export const generateVanityAddress = async (prefix?: string) => {
+export async function generateVanityAddress(prefix?: string) {
 	let onion = await generateOnionV3();
 	while (prefix && !onion.address.startsWith(prefix))
 		onion = await generateOnionV3();
