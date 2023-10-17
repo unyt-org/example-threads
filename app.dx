@@ -1,5 +1,5 @@
 name: "Threads Example",
-icon_path: "https://cdn.unyt.org/unyt-resources/logos/unyt/square-dark-background.png";
+icon: "https://cdn.unyt.org/unyt-resources/logos/unyt/square-dark-background.png";
 
 plugin git_deploy (
 	prod: (
