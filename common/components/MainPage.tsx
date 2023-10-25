@@ -1,9 +1,11 @@
-import { UIX } from "uix";
+import { template } from "uix/html/template.ts";
+import { Component } from "uix/components/Component.ts";
+
 import { spawnThreads, spawnThread } from "unyt_core/threads/threads.ts";
 import { always, map } from "unyt_core/functions.ts";
 import type { AddressData } from "common/TOR-Worker.ts";
 
-@UIX.template(function(this: MainPage) {
+@template(function(this: MainPage) {
 	return <div>
 		<div id="tor" class={always(()=>this.calculatingAddress?'hidden':'')}>
 			<h2>Create TOR Address</h2>
@@ -31,7 +33,7 @@ import type { AddressData } from "common/TOR-Worker.ts";
 		</div>
 	</div>
 })
-export class MainPage extends UIX.BaseComponent {
+export class MainPage extends Component {
 	
 	// reference properties for input values
 	@property piDigits = 5;
