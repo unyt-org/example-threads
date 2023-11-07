@@ -26,14 +26,13 @@
 			&>input {
 				flex: 1;
 				padding: 20px;
-				border-radius: 10px;
+				border-radius: var(--standard-border-radius);
 				max-width: 300px;
 				background-color: transparent;
 				color: var(--text_highlight);
 				padding-left: 20px;
 				font-size: x-large;
-				border: 2px solid var(--text_highlight);
-				border-radius: 10px;
+				border: 2px solid var(--accent);
 			}
 
 			&.hidden {
@@ -48,7 +47,7 @@
 				transition: opacity 0.2s;
 				background-color: var(--text_highlight);
 				border: 3px solid var(--text_highlight);
-				border-radius: 10px;
+				border-radius: var(--standard-border-radius);
 				padding: 10px;
 				cursor: pointer;
 				transition: background-color 0.2s;

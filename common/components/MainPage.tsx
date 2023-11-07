@@ -12,7 +12,7 @@ import type { AddressData } from "common/TOR-Worker.ts";
 			<input id="torAddress" maxlength="3" type="text" placeholder="Prefix of vanity address" value={this.$.addressPrefix}/>
 			<div onclick={() => this.createVanityAddress()} class="button">Compute</div>
 			<section class="results">
-				{map(this.resultAddresses, address =>
+				{map(this.resultAddresses, (address: AddressData) =>
 					<span>
 						<a>{address.address}</a>
 						<b>Pub: {address.public.b64}</b>
@@ -26,7 +26,7 @@ import type { AddressData } from "common/TOR-Worker.ts";
 			<input id="inputPiDigits" type="number" placeholder="Number of digits" value={this.$.piDigits}/>
 			<div onclick={() => this.computePI()} class="button">Compute</div>
 			<section class="results">
-				{map(this.resultPIs, pi =>
+				{map(this.resultPIs, (pi: string) =>
 					<span>{pi}</span>
 				)}
 			</section>
