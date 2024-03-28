@@ -4,15 +4,15 @@ await import("https://cdn.jsdelivr.net/npm/js-sha3@0.9.2/src/sha3.min.js");
 
 
 export type AddressData = {
-    address: string;
-    public: {
-        raw: Uint8Array;
-        b64: string;
-    };
-    private: {
-        raw: Uint8Array;
-        b64: string;
-    };
+	address: string;
+	public: {
+		raw: Uint8Array;
+		b64: string;
+	};
+	private: {
+		raw: Uint8Array;
+		b64: string;
+	};
 }
 
 declare const sha3_256: any;

@@ -14,7 +14,7 @@ In this demo, we are calculating the digits of PI and creating a [TOR vanity add
 	```
 3. Run the project local
 	```bash
-	$ uix -l --port 8000
+	$ uix --port 8000
 	```
 4. Navigate to your favourite web browser and open http://localhost:8000 to see everything in action. 
 
@@ -24,7 +24,7 @@ This diagram outlines the UIX default project structure.
 .
 └── example-threads/
     ├── common/
-    │   ├── compoments/
+    │   ├── components/
     │   │   ├── MainPage.scss   // Main style declaration
     │   │   └── MainPage.tsx    // Main component
     │   ├── PI-Worker.ts        // Worker for PI calculation
@@ -47,4 +47,4 @@ This diagram outlines the UIX default project structure.
 
 ---
 
-<sub>&copy; unyt 2023 • [unyt.org](https://unyt.org)</sub>
+<sub>&copy; unyt 2024 • [unyt.org](https://unyt.org)</sub>

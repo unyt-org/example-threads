@@ -5,6 +5,6 @@ plugin git_deploy (
 	prod: (
 		on: 'push'
 		branch: '*',
-		test: false
+		tests: false
 	)
 )

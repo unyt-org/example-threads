@@ -8,3 +8,6 @@ slot#main {
 section {
 	border-top: 0px;
 }
+body {
+	font-family: var(--sans-font);	
+}

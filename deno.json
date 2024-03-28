@@ -1,9 +1,11 @@
 {
-    "importMap": "./importmap.json",
+    "_publicImportMap": "./importmap.json",
+    "importMap": "./.datex-cache/importmap.lock.json",
     "compilerOptions": {
         "jsx": "react-jsx",
         "jsxImportSource": "uix",
         "lib": [
+            "dom",
             "deno.window"
         ]
     }
