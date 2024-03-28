@@ -1,5 +1,5 @@
 {
-    "_publicImportMap": "./importmap.dev.json",
+    "_publicImportMap": "./importmap.json",
     "importMap": "./.datex-cache/importmap.lock.json",
     "compilerOptions": {
         "jsx": "react-jsx",
