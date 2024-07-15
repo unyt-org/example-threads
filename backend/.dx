@@ -5,7 +5,7 @@ endpoint: stage {
 },
 
 location: stage {
-	prod: @+unyt-host-1
+	prod: @+unyt-host-4
 },
 
 domain: stage {
