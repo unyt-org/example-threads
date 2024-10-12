@@ -2,7 +2,6 @@ const ed = await import("https://unpkg.com/@noble/ed25519@2.0.0/index.js");
 const base32 = await import("https://cdn.jsdelivr.net/npm/hi-base32@0.5.1/+esm");
 await import("https://cdn.jsdelivr.net/npm/js-sha3@0.9.2/src/sha3.min.js");
 
-
 export type AddressData = {
 	address: string;
 	public: {
