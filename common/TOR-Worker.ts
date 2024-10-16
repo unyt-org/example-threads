@@ -2,7 +2,6 @@ const ed = await import("https://unpkg.com/@noble/ed25519@2.0.0/index.js");
 const base32 = await import("https://cdn.jsdelivr.net/npm/hi-base32@0.5.1/+esm");
 await import("https://cdn.jsdelivr.net/npm/js-sha3@0.9.2/src/sha3.min.js");
 
-
 export type AddressData = {
 	address: string;
 	public: {
@@ -81,7 +80,7 @@ async function generateOnionV3(keys: KeyPair | Promise<KeyPair> = generateKeys()
 	hash.update(version);
 
 	const checksum = hash.digest().slice(0, 2);
-   
+
 	const decoded = new Uint8Array([...publicKey, ...checksum, ...version]);
 	const address = base32.encode(Array.from(decoded)).toLowerCase().concat(".onion");
 	const _publicKey = getPublicKey(address);
