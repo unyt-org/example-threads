@@ -1,7 +1,7 @@
 slot#main {
 	overflow-y: scroll;
 }
-.button {
+div.button {
 	display: flex;
 	align-items: center;
 }

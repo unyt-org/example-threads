@@ -80,7 +80,7 @@ async function generateOnionV3(keys: KeyPair | Promise<KeyPair> = generateKeys()
 	hash.update(version);
 
 	const checksum = hash.digest().slice(0, 2);
-   
+
 	const decoded = new Uint8Array([...publicKey, ...checksum, ...version]);
 	const address = base32.encode(Array.from(decoded)).toLowerCase().concat(".onion");
 	const _publicKey = getPublicKey(address);

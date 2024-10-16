@@ -1,17 +1,43 @@
 import { template } from "uix/html/template.ts";
 import { Component } from "uix/components/Component.ts";
-import { spawnThreads, spawnThread } from "datex-core-legacy/threads/threads.ts";
-import { always, map } from "datex-core-legacy/functions.ts";
+import { spawnThreads, spawnThread, run } from "datex-core-legacy/threads/threads.ts";
 import type { AddressData } from "common/TOR-Worker.ts";
 
 @template(function(this: MainPage) {
-	return <div>
-		<div id="tor" class={always(()=>this.calculatingAddress?'hidden':'')}>
-			<h2>Create TOR Address</h2>
-			<input id="torAddress" maxlength="3" type="text" placeholder="Prefix of vanity address" value={this.$.addressPrefix}/>
-			<div onclick={() => this.createVanityAddress()} class="button">Compute</div>
+	return <>
+		<div id="run" class={this.calculatingPI ? 'hidden': ''}>
+			<h2>Use Console</h2>
+			<div onclick={() => this.runConsole()} class="button">
+				Run in Thread
+			</div>
+		</div>
+		<div id="pi" class={this.calculatingPI ? 'hidden': ''}>
+			<h2>Calculate PI</h2>
+			<input id="inputPiDigits" 
+				type="number"
+				placeholder="Number of digits"
+				value={this.piDigits}/>
+			<div onclick={() => this.computePI()} class="button">{
+				this.calculatingPI ? "Waiting" : "Calculate"
+			}</div>
 			<section class="results">
-				{map(this.resultAddresses, (address: AddressData) =>
+				{this.resultPIs.map(pi =>
+					<span>{pi}</span>
+				)}
+			</section>
+		</div>
+		<div id="tor" class={this.calculatingAddress ? 'hidden': ''}>
+			<h2>Create TOR Address</h2>
+			<input id="torAddress"
+				maxlength="3"
+				type="text"
+				placeholder="Prefix of vanity address"
+				value={this.addressPrefix}/>
+			<div onclick={() => this.createVanityAddress()} class="button">{
+				this.calculatingAddress ? "Waiting" : "Calculate"
+			}</div>
+			<section class="results">
+				{this.resultAddresses.map(address =>
 					<span>
 						<a>{address.address}</a>
 						<b>Pub: {address.public.b64}</b>
@@ -20,31 +46,39 @@ import type { AddressData } from "common/TOR-Worker.ts";
 				)}
 			</section>
 		</div>
-		<div id="pi" class={always(()=>this.calculatingPI?'hidden':'')}>
-			<h2>Calculate PI</h2>
-			<input id="inputPiDigits" type="number" placeholder="Number of digits" value={this.$.piDigits}/>
-			<div onclick={() => this.computePI()} class="button">Compute</div>
-			<section class="results">
-				{map(this.resultPIs, (pi: string) =>
-					<span>{pi}</span>
-				)}
-			</section>
-		</div>
-	</div>
+	</>
 })
 export class MainPage extends Component {
-	
 	// reference properties for input values
 	@property piDigits = 5;
-	@property addressPrefix = "";
+	@property addressPrefix = '';
 
 	// reference properties for calculation state
 	@property calculatingPI = false
 	@property calculatingAddress = false
 
 	// arrays containing history of calculated results
-	@property resultPIs:string[] = []
-	@property resultAddresses:AddressData[] = []
+	@property resultPIs: string[] = []
+	@property resultAddresses: AddressData[] = []
+
+	runConsole() {
+		run(() => {
+			console.log("Hello, main thread!");
+			globalThis.console.log("Hello, worker!");
+		});
+	}
+
+	async computePI() {
+		this.calculatingPI = true;
+
+		// spawn a new thread
+		using thread = await spawnThread<typeof import('../PI-Worker.ts')>('../PI-Worker.ts');
+		// calculate pi in the thread
+		const pi = await thread.calculatePI(this.piDigits);
+		this.resultPIs.unshift(pi);
+
+		this.calculatingPI = false;
+	}
 
 	async createVanityAddress() {
 		this.calculatingAddress = true;
@@ -58,17 +92,5 @@ export class MainPage extends Component {
 		this.resultAddresses.unshift(address);
 		
 		this.calculatingAddress = false;
-	}
-
-	async computePI() {
-		this.calculatingPI = true;
-
-		// spawn a new thread
-		using thread = await spawnThread<typeof import('../PI-Worker.ts')>('../PI-Worker.ts');
-		// calculate pi in the thread
-		const pi = await thread.calculatePI(this.piDigits);
-		this.resultPIs.unshift(pi);
-
-		this.calculatingPI = false;
 	}
 }
