@@ -16,4 +16,4 @@ jobs:
       - name: Setup Deno
         uses: "denoland/setup-deno@v1"
       - name: Deploy UIX App
-        run: "deno run --importmap ./importmap.json -Aqr https://cdn.unyt.org/uix@0.3.x/run.ts --stage prod --detach"
+        run: "deno run --importmap ./importmap.json -Aqr https://cdn.unyt.org/uix@0.4.x/run.ts --stage prod --detach"

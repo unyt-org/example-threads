@@ -1,13 +1,13 @@
 slot#main {
-	overflow-y: scroll;
+  overflow-y: scroll;
 }
 div.button {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 section {
-	border-top: 0px;
+  border-top: 0px;
 }
 body {
-	font-family: var(--sans-font);	
+  font-family: var(--sans-font);
 }

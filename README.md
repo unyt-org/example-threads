@@ -1,25 +1,32 @@
 # Example: Threads
 
-This repository demonstrates the concepts of type-safe **Multi-Threading** based on [DATEX](https://datex.unyt.org) and Web Workers.
-In this demo, we are calculating the digits of PI and creating a [TOR vanity address](https://community.torproject.org/onion-services/advanced/vanity-addresses/).
-
+This repository demonstrates the concepts of type-safe **Multi-Threading** based
+on [DATEX](https://datex.unyt.org) and Web Workers. In this demo, we are
+calculating the digits of PI and creating a
+[TOR vanity address](https://community.torproject.org/onion-services/advanced/vanity-addresses/).
 
 ## Installation
-1. Install the **UIX command line tool** following the [Getting Started](https://docs.unyt.org/manual/uix/getting-started#the-uix-command-line-tool) guide in our documentation.
+
+1. Install the **UIX command line tool** following the
+   [Getting Started](https://docs.unyt.org/manual/uix/getting-started#the-uix-command-line-tool)
+   guide in our documentation.
 
 2. Clone this repository to your local machine:
 
-	```bash
-	$ git clone https://github.com/unyt-org/example-threads.git
-	```
+   ```bash
+   $ git clone https://github.com/unyt-org/example-threads.git
+   ```
 3. Run the project local
-	```bash
-	$ uix --port 8000
-	```
-4. Navigate to your favourite web browser and open http://localhost:8000 to see everything in action. 
+   ```bash
+   $ uix --port 8000
+   ```
+4. Navigate to your favourite web browser and open http://localhost:8000 to see
+   everything in action.
 
 ## Structure
+
 This diagram outlines the UIX default project structure.
+
 ```
 .
 └── example-threads/
@@ -37,14 +44,15 @@ This diagram outlines the UIX default project structure.
 ```
 
 ## Features
-* Threading
-* Multiple threads
-* Disposing of threads
+
+- Threading
+- Multiple threads
+- Disposing of threads
 
 ## Preview
-<img src=".github/screenshot.png" width="400">
 
+<img src=".github/screenshot.png" width="400">
 
 ---
 
-<sub>&copy; unyt 2024 • [unyt.org](https://unyt.org)</sub>
+<sub>&copy; unyt 2025 • [unyt.org](https://unyt.org)</sub>
